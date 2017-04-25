@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Foundation
 
 class MoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        WebApi.instance.getTopMovies { (webResponse) in
+            print(webResponse.json)
+        }
+        
     }
 
 
