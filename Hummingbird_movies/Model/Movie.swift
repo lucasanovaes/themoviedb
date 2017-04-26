@@ -14,14 +14,16 @@ struct Movie{
     var title : String
     var release_date : String
     var overview : String
-    var poster_path : String
+    var poster_path : URL?
     var poster : UIImage?
     
     init(json : [String : Any]) {
         self.title = json["title"] as? String ?? ""
         self.release_date = json["release_date"] as! String 
-        self.overview = json["overview"] as! String 
-        self.poster_path = json["poster_path"] as? String ?? ""
+        self.overview = json["overview"] as! String
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500\(json["poster_path"] as? String ?? "")"){
+            self.poster_path = url
+        }
     }
     
     static func returnMovies(json : [String : Any]) -> [Movie]{

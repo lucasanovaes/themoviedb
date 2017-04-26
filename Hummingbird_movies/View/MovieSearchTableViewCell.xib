@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieSearchCell" rowHeight="231" id="KGk-i7-Jjw" customClass="MovieSearchTableViewCell" customModule="Hummingbird_movies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="231"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="231"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_movie_search" translatesAutoresizingMaskIntoConstraints="NO" id="UWt-sK-nqg">
+                        <rect key="frame" x="85" y="21" width="151" height="142"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="UWt-sK-nqg" secondAttribute="height" multiplier="151:142" id="vnR-bR-THC"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Busque seus filmes favoritos!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbX-Kb-OjU">
+                        <rect key="frame" x="36" y="191" width="248" height="26"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="WbX-Kb-OjU" secondAttribute="bottom" constant="5.5" id="9nA-8G-7hI"/>
+                    <constraint firstItem="WbX-Kb-OjU" firstAttribute="top" secondItem="UWt-sK-nqg" secondAttribute="bottom" constant="28" id="Lgj-OU-oWX"/>
+                    <constraint firstItem="WbX-Kb-OjU" firstAttribute="centerX" secondItem="UWt-sK-nqg" secondAttribute="centerX" id="RNr-lA-qUV"/>
+                    <constraint firstItem="UWt-sK-nqg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="85" id="eBC-ho-tFb"/>
+                    <constraint firstItem="UWt-sK-nqg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="h0D-GE-ACN"/>
+                    <constraint firstAttribute="trailing" secondItem="UWt-sK-nqg" secondAttribute="trailing" constant="84" id="mut-Hf-yy0"/>
+                    <constraint firstItem="UWt-sK-nqg" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="smc-yJ-qoF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="34" y="132.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_movie_search" width="800" height="800"/>
+    </resources>
+</document>

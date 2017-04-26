@@ -21,9 +21,21 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func fill(movie : Movie){
-        title.text = movie.title
-        releaseDate.text = movie.release_date
-        overview.text = movie.overview
+        DispatchQueue.main.async {
+            self.title.text = movie.title
+            self.releaseDate.text = movie.release_date
+            self.overview.text = movie.overview
+            self.poster.image = #imageLiteral(resourceName: "movie_placeholder")
+        }
+        
+//        WebApi.instance.getImageFromUrl(url: movie.poster_path!) { (data, response, error) in
+//            DispatchQueue.main.async {
+//                if let data = data{
+//                    self.poster.image = UIImage(data: data)
+//                }
+//            }
+//        }
+
     }
     
 }

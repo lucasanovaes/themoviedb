@@ -56,9 +56,9 @@ final class WebApi{
     
     // MARK: Methods that calls API
     typealias getTopMoviesOnComplete = ([Movie], WebResponse) -> Void
-    func getTopMovies(onComplete : @escaping getTopMoviesOnComplete){
+    func getTopMovies(page : Int = 1, onComplete : @escaping getTopMoviesOnComplete){
         
-        let url = Url(path: .discover_movies, parameters: [Parameter(parameter: Parameters.language), Parameter(parameter: Parameters.api_key), Parameter(parameter: Parameters.sort_by)])
+        let url = Url(path: .discover_movies, parameters: [Parameter(parameter: Parameters.language), Parameter(parameter: Parameters.api_key), Parameter(parameter: Parameters.sort_by), Parameter(parameter : ["page" : "\(page)"])])
         
         WebClient().request(url: fillUrl(url: url)) { (webResponse) in
             onComplete(Movie.returnMovies(json: webResponse.json!), webResponse)
@@ -66,9 +66,9 @@ final class WebApi{
     }
     
     typealias searchMovieOnComplete = ([Movie], WebResponse) -> Void
-    func searchMovie(movieTitle : String, onComplete : @escaping searchMovieOnComplete){
+    func searchMovie(movieTitle : String, page : Int = 1, onComplete : @escaping searchMovieOnComplete){
         
-        let url = Url(path: .search_movies, parameters: [Parameter(parameter: Parameters.language), Parameter(parameter: Parameters.api_key), Parameter(parameter: ["query" : movieTitle])])
+        let url = Url(path: .search_movies, parameters: [Parameter(parameter: Parameters.language), Parameter(parameter: Parameters.api_key), Parameter(parameter: ["query" : movieTitle]), Parameter(parameter : ["page" : "\(page)"])])
         
         WebClient().request(url: fillUrl(url: url)) { (webResponse) in
             onComplete(Movie.returnMovies(json: webResponse.json!), webResponse)
@@ -76,4 +76,11 @@ final class WebApi{
     }
     
 
+    func getImageFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+        }.resume()
+    }
+    
 }
