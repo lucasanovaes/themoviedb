@@ -15,6 +15,7 @@ final class WebClient{
         
         guard let url = url else { return }
         print("-----------\n\nRequest URL: \(url)\n\n-----------")
+        
         let task = URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
             if let error = error{
                 print("Error = \(error)")
@@ -26,7 +27,7 @@ final class WebClient{
                 return
             }
             
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+            let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
             print(json ?? "Cant parse JSON")
             
             onComplete(WebResponse(json: json, error: error))

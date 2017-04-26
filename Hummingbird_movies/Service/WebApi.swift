@@ -54,11 +54,11 @@ final class WebApi{
     }
     
     // MARK: Methods that calls API
-    typealias getTopMoviesOnComplete = (WebResponse) -> Void
+    typealias getTopMoviesOnComplete = ([Movie], WebResponse) -> Void
     func getTopMovies(onComplete : @escaping getTopMoviesOnComplete){
         let url = Url(path: .discover_movies, parameters: [Parameter(parameter: Parameters.language), Parameter(parameter: Parameters.api_key), Parameter(parameter: Parameters.sort_by)])
         WebClient().request(url: fillUrl(url: url)) { (webResponse) in
-            onComplete(webResponse)
+            onComplete(Movie.returnMovies(json: webResponse.json!), webResponse)
         }
     }
     

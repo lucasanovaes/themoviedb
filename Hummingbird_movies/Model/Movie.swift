@@ -11,13 +11,26 @@ import Foundation
 struct Movie{
     
     var title : String
-    var release_date : Date
+    var release_date : String
     var overview : String
-    var poster_path : URL
+    var poster_path : String
     
-    
-    init() {
-        
+    init(json : [String : Any]) {
+        self.title = json["title"] as? String ?? ""
+        self.release_date = json["release_date"] as! String 
+        self.overview = json["overview"] as! String 
+        self.poster_path = json["poster_path"] as? String ?? ""
     }
+    
+    static func returnMovies(json : [String : Any]) -> [Movie]{
+        let results = json["results"] as? NSArray
+        var movies = [Movie]()
+        results?.forEach({ (movie) in
+            let parsedMovie = movie as! [String : Any]
+            movies.append(Movie(json: parsedMovie))
+        })
+        return movies
+    }
+    
     
 }

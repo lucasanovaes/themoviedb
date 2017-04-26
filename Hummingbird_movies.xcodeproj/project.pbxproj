@@ -94,8 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				4CFC4F931EAF83680029C915 /* WebResponse.swift */,
-				4CFC4F951EAF83AC0029C915 /* WebApi.swift */,
 				4CFC4F971EAF83F80029C915 /* WebClient.swift */,
+				4CFC4F951EAF83AC0029C915 /* WebApi.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -350,6 +350,7 @@
 				4CFC4F851EAE7E2D0029C915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

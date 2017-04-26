@@ -10,7 +10,7 @@ import Foundation
 
 final class WebResponse{
     
-    var json : Any?
+    var json : [String:Any]?
     var error : Error?
     var isError : Bool{
         return error != nil
@@ -20,7 +20,7 @@ final class WebResponse{
         return error.localizedDescription
     }
     
-    convenience init(json : Any?, error : Error?) {
+    convenience init(json : [String:Any]?, error : Error?) {
         self.init()
         self.json = json
         self.error = error

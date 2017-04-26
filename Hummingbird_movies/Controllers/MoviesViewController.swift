@@ -14,7 +14,7 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        WebApi.instance.getTopMovies { (webResponse) in
+        WebApi.instance.getTopMovies { (asd, webResponse) in
             print(webResponse.json)
         }
         
