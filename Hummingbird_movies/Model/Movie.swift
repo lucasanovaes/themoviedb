@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Movie{
     
@@ -14,6 +15,7 @@ struct Movie{
     var release_date : String
     var overview : String
     var poster_path : String
+    var poster : UIImage?
     
     init(json : [String : Any]) {
         self.title = json["title"] as? String ?? ""
@@ -31,6 +33,5 @@ struct Movie{
         })
         return movies
     }
-    
     
 }

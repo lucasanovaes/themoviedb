@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C13348D1EB0DF5000F212C4 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13348B1EB0DF5000F212C4 /* MovieTableViewCell.swift */; };
+		4C13348E1EB0DF5000F212C4 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C13348C1EB0DF5000F212C4 /* MovieTableViewCell.xib */; };
 		4CFC4F751EAE7E2D0029C915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC4F741EAE7E2D0029C915 /* AppDelegate.swift */; };
 		4CFC4F881EAE7E920029C915 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC4F871EAE7E920029C915 /* MoviesViewController.swift */; };
 		4CFC4F8F1EAE7EB90029C915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFC4F8A1EAE7EB90029C915 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C13348B1EB0DF5000F212C4 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieTableViewCell.swift; path = ../View/MovieTableViewCell.swift; sourceTree = "<group>"; };
+		4C13348C1EB0DF5000F212C4 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		4CFC4F711EAE7E2D0029C915 /* Hummingbird_movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hummingbird_movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFC4F741EAE7E2D0029C915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFC4F801EAE7E2D0029C915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C13348A1EB0DF3800F212C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C13348C1EB0DF5000F212C4 /* MovieTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4CFC4F681EAE7E2D0029C915 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +77,7 @@
 				4CFC4F741EAE7E2D0029C915 /* AppDelegate.swift */,
 				4CFC4F921EAF83550029C915 /* Service */,
 				4CFC4F991EAF93BA0029C915 /* Model */,
+				4C13348A1EB0DF3800F212C4 /* View */,
 				4CFC4F861EAE7E820029C915 /* Controllers */,
 				4CFC4F891EAE7EB90029C915 /* Assets */,
 				4CFC4F801EAE7E2D0029C915 /* Info.plist */,
@@ -76,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFC4F871EAE7E920029C915 /* MoviesViewController.swift */,
+				4C13348B1EB0DF5000F212C4 /* MovieTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +184,7 @@
 			files = (
 				4CFC4F911EAE7EB90029C915 /* Main.storyboard in Resources */,
 				4CFC4F8F1EAE7EB90029C915 /* Assets.xcassets in Resources */,
+				4C13348E1EB0DF5000F212C4 /* MovieTableViewCell.xib in Resources */,
 				4CFC4F901EAE7EB90029C915 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +198,7 @@
 			files = (
 				4CFC4F751EAE7E2D0029C915 /* AppDelegate.swift in Sources */,
 				4CFC4F941EAF83680029C915 /* WebResponse.swift in Sources */,
+				4C13348D1EB0DF5000F212C4 /* MovieTableViewCell.swift in Sources */,
 				4CFC4F9B1EAF93FE0029C915 /* Movie.swift in Sources */,
 				4CFC4F881EAE7E920029C915 /* MoviesViewController.swift in Sources */,
 				4CFC4F981EAF83F80029C915 /* WebClient.swift in Sources */,

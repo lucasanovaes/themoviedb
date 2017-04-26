@@ -45,6 +45,7 @@ final class WebApi{
     private func fillUrl(url : Url) -> URL?{
         var urlComponents = URLComponents(string: url.baseUrl + url.path.rawValue)
         var queryItens = [URLQueryItem]()
+        
         url.parameters.forEach({ (parameter) in
             queryItens.append(URLQueryItem(name: (parameter.rawValue.first?.key)!, value: parameter.rawValue.first?.value))
         })
@@ -56,10 +57,23 @@ final class WebApi{
     // MARK: Methods that calls API
     typealias getTopMoviesOnComplete = ([Movie], WebResponse) -> Void
     func getTopMovies(onComplete : @escaping getTopMoviesOnComplete){
+        
         let url = Url(path: .discover_movies, parameters: [Parameter(parameter: Parameters.language), Parameter(parameter: Parameters.api_key), Parameter(parameter: Parameters.sort_by)])
+        
         WebClient().request(url: fillUrl(url: url)) { (webResponse) in
             onComplete(Movie.returnMovies(json: webResponse.json!), webResponse)
         }
     }
     
+    typealias searchMovieOnComplete = ([Movie], WebResponse) -> Void
+    func searchMovie(movieTitle : String, onComplete : @escaping searchMovieOnComplete){
+        
+        let url = Url(path: .search_movies, parameters: [Parameter(parameter: Parameters.language), Parameter(parameter: Parameters.api_key), Parameter(parameter: ["query" : movieTitle])])
+        
+        WebClient().request(url: fillUrl(url: url)) { (webResponse) in
+            onComplete(Movie.returnMovies(json: webResponse.json!), webResponse)
+        }
+    }
+    
+
 }

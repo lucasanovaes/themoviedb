@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="83j-1b-eAH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Movies View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MoviesViewController" id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Hummingbird_movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="MoviesViewController" customModule="Hummingbird_movies" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,11 +20,55 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HQc-a3-65B">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HQc-a3-65B" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="1aY-Pd-qtn"/>
+                            <constraint firstAttribute="trailing" secondItem="HQc-a3-65B" secondAttribute="trailing" id="5DW-lH-XjK"/>
+                            <constraint firstItem="HQc-a3-65B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Oum-p0-AzZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HQc-a3-65B" secondAttribute="bottom" id="T4T-ft-9e9"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NCT-fp-cMw"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="w9L-aP-r5s" id="vMB-Iu-CfY"/>
+                        <outlet property="tableView" destination="HQc-a3-65B" id="ypz-mY-Yew"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="w9L-aP-r5s">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="5LE-ss-K7x"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="az2-tM-oqO"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="c9o-MY-s2i"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="Sak-EY-1vX"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="853.60000000000002" y="126.38680659670166"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zhe-dk-K4j">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="83j-1b-eAH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="67b-vL-oDz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1bU-da-TbO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZP2-vX-yLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="127.28635682158921"/>
         </scene>
     </scenes>
 </document>
