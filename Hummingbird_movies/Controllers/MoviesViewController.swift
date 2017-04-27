@@ -17,6 +17,7 @@ final class MoviesViewController: UIViewController {
     fileprivate var movies = [Movie]()
     fileprivate var state : State = .discoverySearch
     fileprivate var nextPage = 2
+    fileprivate var textToSearch = ""
     
     enum State {
         case regularSearch
@@ -58,15 +59,15 @@ final class MoviesViewController: UIViewController {
         }
     }
     
-    fileprivate dynamic func searchMovieWith(title : String, page : Int = 1){
-        WebApi.instance.searchMovie(movieTitle: title, page: page){ [weak self] (movies, webResponse) in
+    fileprivate dynamic func searchMovieWith(page : Int = 1){
+        WebApi.instance.searchMovie(movieTitle: textToSearch, page: page == 0 ? 1 : page){ [weak self] (movies, webResponse) in
             if !webResponse.isError{
                 
                 if movies.count < 20{
                     self?.stopPagination()
                 }
                 
-                self?.movies = self!.mergeMovies(currentMovies: self!.movies, newMovies: movies, page: page)
+                self?.movies = self!.mergeMovies(currentMovies: self!.movies, newMovies: movies, page: page == 0 ? 1 : page)
                 self?.state = movies.count > 0 ? .regularSearch : .noResults
                 
                 DispatchQueue.main.async {
@@ -121,8 +122,9 @@ extension MoviesViewController : UISearchResultsUpdating{
             if !searchText.isEmpty{
                 
                 // This is the magic trick! Just send the request after 0.3 seconds delay, canceling the last request if it wasnt completed.
-                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchMovieWith(title:page:)), object: nil)
-                perform(#selector(self.searchMovieWith(title:page:)), with: nil, afterDelay: 0.3)
+                textToSearch = searchText
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchMovieWith(page:)), object: nil)
+                perform(#selector(self.searchMovieWith(page:)), with: nil, afterDelay: 0.3)
                 
             }else{
                 state = .notregularSearchYet
@@ -197,7 +199,7 @@ extension MoviesViewController : UITableViewDelegate, UITableViewDataSource{
                 if state == .discoverySearch{
                     getTopMovies(page: nextPage)
                 }else if state == .regularSearch{
-                    searchMovieWith(title: searchController.searchBar.text!, page: nextPage)
+                    searchMovieWith(page: nextPage)
                 }
                 nextPage += 1
             }
