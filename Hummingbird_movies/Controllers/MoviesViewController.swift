@@ -58,7 +58,7 @@ final class MoviesViewController: UIViewController {
         }
     }
     
-    fileprivate func searchMovieWith(title : String, page : Int = 1){
+    fileprivate dynamic func searchMovieWith(title : String, page : Int = 1){
         WebApi.instance.searchMovie(movieTitle: title, page: page){ [weak self] (movies, webResponse) in
             if !webResponse.isError{
                 
@@ -119,7 +119,11 @@ extension MoviesViewController : UISearchResultsUpdating{
             guard let searchText = searchController.searchBar.text else { return }
             
             if !searchText.isEmpty{
-                searchMovieWith(title: searchText)
+                
+                // This is the magic trick! Just send the request after 0.3 seconds delay, canceling the last request if it wasnt completed.
+                NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchMovieWith(title:page:)), object: nil)
+                perform(#selector(self.searchMovieWith(title:page:)), with: nil, afterDelay: 0.3)
+                
             }else{
                 state = .notregularSearchYet
                 tableView.reloadData()

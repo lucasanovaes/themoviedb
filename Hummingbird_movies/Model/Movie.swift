@@ -17,7 +17,7 @@ struct Movie{
     var release_date : String
     var overview : String
     var poster_path : URL?
-    var poster : UIImage?
+    var backdrop_path : URL?
     
     init(json : [String : Any]) {
         self.title = json["title"] as? String ?? ""
@@ -25,6 +25,9 @@ struct Movie{
         self.overview = json["overview"] as! String
         if let url = URL(string: "https://image.tmdb.org/t/p/w500\(json["poster_path"] as? String ?? "")"){
             self.poster_path = url
+        }
+        if let url = URL(string: "https://image.tmdb.org/t/p/w500\(json["backdrop_path"] as? String ?? "")"){
+            self.backdrop_path = url
         }
     }
     

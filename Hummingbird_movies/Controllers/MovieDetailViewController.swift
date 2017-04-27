@@ -11,7 +11,6 @@ import UIKit
 class MovieDetailViewController: UIViewController {
     
     @IBOutlet weak var backdropPoster: UIImageView!
-    @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var overview: UILabel!
@@ -30,10 +29,9 @@ class MovieDetailViewController: UIViewController {
             self.overview.text = self.movie.overview
         }
         
-        WebApi.instance.getImageFromUrl(url: movie.poster_path!) { (data, response, error) in
+        WebApi.instance.getImageFromUrl(url: movie.backdrop_path!) { (data, response, error) in
             DispatchQueue.main.async {
                 if let data = data{
-                    self.poster.image = UIImage(data: data)
                     self.backdropPoster.image = UIImage(data: data)
                 }
             }
