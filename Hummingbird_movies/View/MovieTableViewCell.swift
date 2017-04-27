@@ -28,13 +28,13 @@ class MovieTableViewCell: UITableViewCell {
             self.poster.image = #imageLiteral(resourceName: "movie_placeholder")
         }
         
-//        WebApi.instance.getImageFromUrl(url: movie.poster_path!) { (data, response, error) in
-//            DispatchQueue.main.async {
-//                if let data = data{
-//                    self.poster.image = UIImage(data: data)
-//                }
-//            }
-//        }
+        WebApi.instance.getImageFromUrl(url: movie.poster_path!) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let data = data{
+                    self.poster.image = UIImage(data: data)
+                }
+            }
+        }
 
     }
     

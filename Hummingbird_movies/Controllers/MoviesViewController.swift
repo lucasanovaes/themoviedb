@@ -16,6 +16,7 @@ final class MoviesViewController: UIViewController {
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     fileprivate var movies = [Movie]()
     fileprivate var state : State = .discoverySearch
+    fileprivate var nextPage = 2
     
     enum State {
         case regularSearch
@@ -41,20 +42,33 @@ final class MoviesViewController: UIViewController {
     fileprivate func getTopMovies(page : Int = 1){
         WebApi.instance.getTopMovies(page: page)  { [weak self] (movies, webResponse) in
             if !webResponse.isError{
+                
+                if movies.count < 20{
+                    self?.stopPagination()
+                }
+                
                 self?.movies = self!.mergeMovies(currentMovies: self!.movies, newMovies: movies, page: page)
                 self?.state = movies.count > 0 ? .discoverySearch : .noResults
+                
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
+                
             }
         }
     }
     
     fileprivate func searchMovieWith(title : String, page : Int = 1){
-        WebApi.instance.searchMovie(movieTitle: title, page: 1){ [weak self] (movies, webResponse) in
+        WebApi.instance.searchMovie(movieTitle: title, page: page){ [weak self] (movies, webResponse) in
             if !webResponse.isError{
+                
+                if movies.count < 20{
+                    self?.stopPagination()
+                }
+                
                 self?.movies = self!.mergeMovies(currentMovies: self!.movies, newMovies: movies, page: page)
                 self?.state = movies.count > 0 ? .regularSearch : .noResults
+                
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -70,6 +84,15 @@ final class MoviesViewController: UIViewController {
         }
     }
     
+    // MARK: Pagination methos
+    fileprivate func resetPagination(){
+        nextPage = 2
+    }
+    
+    fileprivate func stopPagination(){
+        nextPage = -1
+    }
+    
 }
 
 // MARK: SearchResultsUpdating
@@ -82,6 +105,7 @@ extension MoviesViewController : UISearchResultsUpdating{
     }
     
     func updateSearchResults(for searchController: UISearchController) {
+        resetPagination() // Reset next page when any interaction happens to Search Controller
         if searchController.isActive{
             guard let searchText = searchController.searchBar.text else { return }
             
@@ -110,7 +134,7 @@ extension MoviesViewController : UITableViewDelegate, UITableViewDataSource{
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: TableViewCellIdentifiers.movie)
         tableView.register(UINib(nibName: "NothingFoundTableViewCell", bundle: nil), forCellReuseIdentifier: TableViewCellIdentifiers.nothingFound)
         tableView.register(UINib(nibName: "MovieSearchTableViewCell", bundle: nil), forCellReuseIdentifier: TableViewCellIdentifiers.movieSearch)
-        tableView.estimatedRowHeight = 187 // Just estimated value!
+        tableView.estimatedRowHeight = 187
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
@@ -146,13 +170,19 @@ extension MoviesViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if nextPage == -1{
+            return
+        }
+        
         if state == .discoverySearch || state == .regularSearch{
             if indexPath.row == movies.count - 1{
                 if state == .discoverySearch{
-                    getTopMovies(page: 2)
+                    getTopMovies(page: nextPage)
                 }else if state == .regularSearch{
-                    searchMovieWith(title: searchController.searchBar.text!, page: 2)
+                    searchMovieWith(title: searchController.searchBar.text!, page: nextPage)
                 }
+                nextPage += 1
             }
         }
     }

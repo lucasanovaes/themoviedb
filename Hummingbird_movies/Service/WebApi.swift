@@ -11,6 +11,7 @@ import Foundation
 final class WebApi{
     
     static let instance = WebApi()
+    var nextPage = 1
     
     private enum Path : String{
         case discover_movies = "/discover/movie"
