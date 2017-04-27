@@ -8,6 +8,12 @@
 
 import Foundation
 
+/*
+ 
+ Class responsable for communicate with API, requesting asynchrony, handling and returning data
+ 
+ */
+
 final class WebClient{
     
     typealias requestOnComplete = (WebResponse) -> Void

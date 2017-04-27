@@ -84,7 +84,7 @@ final class MoviesViewController: UIViewController {
         }
     }
     
-    // MARK: Pagination methos
+    // MARK: Pagination methods
     fileprivate func resetPagination(){
         nextPage = 2
     }

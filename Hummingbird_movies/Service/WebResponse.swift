@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Class responsable for handle data and errors returned from API. This class is returned into an callback
 final class WebResponse{
     
     var json : [String:Any]?

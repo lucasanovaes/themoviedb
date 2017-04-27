@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// Model class
+
 struct Movie{
     
     var title : String

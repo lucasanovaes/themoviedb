@@ -8,6 +8,13 @@
 
 import Foundation
 
+/*
+ 
+ Class acting as an 'interface' for the WebClient, providing all parameters scheme, data parse, url compose and more.
+ 
+ */
+
+
 final class WebApi{
     
     static let instance = WebApi()
@@ -76,7 +83,6 @@ final class WebApi{
         }
     }
     
-
     func getImageFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
         URLSession.shared.dataTask(with: url) {
             (data, response, error) in
