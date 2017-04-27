@@ -13,6 +13,7 @@
 		4C1334951EB10B7800F212C4 /* NothingFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C1334931EB10B7800F212C4 /* NothingFoundTableViewCell.xib */; };
 		4C1334981EB10C8500F212C4 /* MovieSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1334961EB10C8500F212C4 /* MovieSearchTableViewCell.swift */; };
 		4C1334991EB10C8500F212C4 /* MovieSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C1334971EB10C8500F212C4 /* MovieSearchTableViewCell.xib */; };
+		4C81EF731EB21BDE00B131D9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C81EF721EB21BDE00B131D9 /* StringExtension.swift */; };
 		4CFC4F751EAE7E2D0029C915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC4F741EAE7E2D0029C915 /* AppDelegate.swift */; };
 		4CFC4F881EAE7E920029C915 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC4F871EAE7E920029C915 /* MoviesViewController.swift */; };
 		4CFC4F8F1EAE7EB90029C915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFC4F8A1EAE7EB90029C915 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		4C1334931EB10B7800F212C4 /* NothingFoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundTableViewCell.xib; sourceTree = "<group>"; };
 		4C1334961EB10C8500F212C4 /* MovieSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSearchTableViewCell.swift; sourceTree = "<group>"; };
 		4C1334971EB10C8500F212C4 /* MovieSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieSearchTableViewCell.xib; sourceTree = "<group>"; };
+		4C81EF721EB21BDE00B131D9 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		4CFC4F711EAE7E2D0029C915 /* Hummingbird_movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hummingbird_movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CFC4F741EAE7E2D0029C915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CFC4F801EAE7E2D0029C915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4C81EF711EB21BD500B131D9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C81EF721EB21BDE00B131D9 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4CFC4F681EAE7E2D0029C915 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 				4CFC4F991EAF93BA0029C915 /* Model */,
 				4C13348A1EB0DF3800F212C4 /* View */,
 				4CFC4F861EAE7E820029C915 /* Controllers */,
+				4C81EF711EB21BD500B131D9 /* Extensions */,
 				4CFC4F891EAE7EB90029C915 /* Assets */,
 				4CFC4F801EAE7E2D0029C915 /* Info.plist */,
 			);
@@ -222,6 +233,7 @@
 				DE465D2D1EB1779800CD3589 /* MovieDetailViewController.swift in Sources */,
 				4CFC4F881EAE7E920029C915 /* MoviesViewController.swift in Sources */,
 				4CFC4F981EAF83F80029C915 /* WebClient.swift in Sources */,
+				4C81EF731EB21BDE00B131D9 /* StringExtension.swift in Sources */,
 				4CFC4F961EAF83AC0029C915 /* WebApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
