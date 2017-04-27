@@ -93,6 +93,15 @@ final class MoviesViewController: UIViewController {
         nextPage = -1
     }
     
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails"{
+            let movieDetailViewController = segue.destination as! MovieDetailViewController
+            guard let row = tableView.indexPathForSelectedRow?.row else { return }
+            movieDetailViewController.movie = movies[row]
+        }
+    }
+    
 }
 
 // MARK: SearchResultsUpdating
@@ -167,6 +176,10 @@ extension MoviesViewController : UITableViewDelegate, UITableViewDataSource{
             case .noResults:
                 return tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.nothingFound) as! NothingFoundTableViewCell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetails", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

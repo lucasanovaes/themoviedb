@@ -22,6 +22,7 @@
 		4CFC4F961EAF83AC0029C915 /* WebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC4F951EAF83AC0029C915 /* WebApi.swift */; };
 		4CFC4F981EAF83F80029C915 /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC4F971EAF83F80029C915 /* WebClient.swift */; };
 		4CFC4F9B1EAF93FE0029C915 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC4F9A1EAF93FE0029C915 /* Movie.swift */; };
+		DE465D2D1EB1779800CD3589 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE465D2C1EB1779800CD3589 /* MovieDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4CFC4F951EAF83AC0029C915 /* WebApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApi.swift; sourceTree = "<group>"; };
 		4CFC4F971EAF83F80029C915 /* WebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
 		4CFC4F9A1EAF93FE0029C915 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		DE465D2C1EB1779800CD3589 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFC4F871EAE7E920029C915 /* MoviesViewController.swift */,
+				DE465D2C1EB1779800CD3589 /* MovieDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				4C13348D1EB0DF5000F212C4 /* MovieTableViewCell.swift in Sources */,
 				4CFC4F9B1EAF93FE0029C915 /* Movie.swift in Sources */,
 				4C1334981EB10C8500F212C4 /* MovieSearchTableViewCell.swift in Sources */,
+				DE465D2D1EB1779800CD3589 /* MovieDetailViewController.swift in Sources */,
 				4CFC4F881EAE7E920029C915 /* MoviesViewController.swift in Sources */,
 				4CFC4F981EAF83F80029C915 /* WebClient.swift in Sources */,
 				4CFC4F961EAF83AC0029C915 /* WebApi.swift in Sources */,
